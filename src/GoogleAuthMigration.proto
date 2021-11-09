@@ -5,7 +5,7 @@
 syntax = "proto2";
 
 message MigrationPayload {
-	repeated Parameters parameters = 1;
+	repeated OTPConfig configs = 1;
 
 	optional int32 version = 2;
 
@@ -16,7 +16,7 @@ message MigrationPayload {
 	optional int32 batchID = 5;
 }
 
-message Parameters {
+message OTPConfig {
 	optional bytes secret = 1;
 
 	optional string name = 2;
@@ -27,7 +27,7 @@ message Parameters {
 
 	optional DigitCount digits = 5;
 
-	optional OtpType type = 6;
+	optional OTPType otpType = 6;
 
 	optional int64 counter = 7;
 }
@@ -46,7 +46,7 @@ enum DigitCount {
 	EIGHT = 2;
 }
 
-enum OtpType {
+enum OTPType {
 	OTP_TYPE_UNSPECIFIED = 0;
 	HOTP = 1;
 	TOTP = 2;
